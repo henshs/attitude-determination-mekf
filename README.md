@@ -26,6 +26,25 @@ prove works."
 - **Attitude control** — quaternion feedback PD (with gyroscopic feedforward) and **LQR**
 - Unit tests including energy/momentum conservation and quaternion round-trips
 
+## What the capstones show
+
+**`mekf_attitude_estimation.py`** — a slowly rotating spacecraft with a drifting
+gyro bias, tracked by fusing noisy gyro rates with periodic star-tracker fixes.
+
+![MEKF attitude and bias estimation with NEES consistency](examples/figures/mekf_attitude_estimation.png)
+
+Attitude error converges to ~0.01° inside its 3σ envelope, gyro-bias error collapses
+from ~150°/hr to ~10°/hr as the filter calibrates the gyro, and NEES scatters around
+6 inside the χ² band — **mean NEES ≈ 6, mean NIS ≈ 3**, a statistically consistent filter.
+
+**`closed_loop_adcs.py`** — the full ADCS loop: gyro + star tracker feed the MEKF;
+the MEKF estimate drives a quaternion-PD controller; the torque is integrated through
+the true rigid-body dynamics.
+
+![Closed-loop 40 degree slew](examples/figures/closed_loop_adcs.png)
+
+A 40° slew flown entirely on the *filter's estimate* (as in flight), settling to ~0.1° pointing.
+
 ## Layout
 
 ```
