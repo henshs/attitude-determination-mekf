@@ -11,7 +11,7 @@ venv/
 env/
 
 # Generated figures
-examples/figures/
+#examples/figures/
 
 # Testing
 .pytest_cache/
