@@ -44,7 +44,7 @@ def quat_to_axis_angle(q):
     q = quat_normalize(q)
     angle = 2 * np.arccos(np.clip(q[0], -1, 1))
     s = np.sqrt(max(1 - q[0]**2, 0.0))
-    axis = q[1:] / s if s > 1e-12 else np.array([1.0, 0, 0])
+    axis = q[1:] / s if s > 1e-12 else np.array([1.0, 0, 0]) # else arbitrary z direction
     return axis, angle
 
 
