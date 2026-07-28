@@ -106,7 +106,7 @@ def small_angle_quat(dtheta):
 
 
 def quat_error_angle(q_est, q_true):
-    """Multiplicative error angle vector (Topic 20): 2*vec(q_est* (x) q_true)."""
+    """Multiplicative error angle vector: 2*vec(q_est* (x) q_true)."""
     dq = quat_mult(quat_conj(q_est), q_true)
     if dq[0] < 0:
         dq = -dq                       # keep short rotation (double cover)
