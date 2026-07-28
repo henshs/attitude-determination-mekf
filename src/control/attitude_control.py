@@ -29,7 +29,7 @@ def pd_control(q, omega, q_desired, kp, kd, J=None, feedforward_gyro=False):
 def pd_gains(J_axis, wn, zeta):
     """PD gains for a target natural frequency wn and damping zeta (single axis)."""
     kp = 2 * J_axis * wn**2
-    kd = 2 * zeta * np.sqrt(2 * kp * J_axis)
+    kd = 2 * zeta  * wn * J_axis
     return kp, kd
 
 
