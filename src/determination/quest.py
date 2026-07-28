@@ -18,7 +18,7 @@ def davenport_q(vecs_b, vecs_i, weights=None):
     n = len(vb)
     w = np.ones(n) if weights is None else np.asarray(weights, float)
 
-    # Attitude profile matrix B = sum w_k b_k i_k^T
+    # Attitude profile matrix B = sum w_k v_b,k v_i,k^T
     B = sum(w[k] * np.outer(vb[k], vi[k]) for k in range(n))
     S = B + B.T
     sigma = np.trace(B)
