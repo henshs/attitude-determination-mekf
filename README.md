@@ -107,4 +107,4 @@ independently checked (unit tests, conservation laws, and NEES/NIS consistency).
 
 ## License
 
-This project is open-source. You are free to use, modify, and distribute it with attribution.
+MIT. See [LICENSE](LICENSE.txt) for details.
